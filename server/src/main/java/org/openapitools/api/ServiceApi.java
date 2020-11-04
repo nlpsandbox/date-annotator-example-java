@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import java.net.URI;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -47,24 +48,33 @@ public interface ServiceApi {
      *         or The specified resource was not found (status code 404)
      */
     @ApiOperation(value = "Get service information", nickname = "service", notes = "Get information about the service", response = Service.class, tags={ "Service", })
-    @ApiResponses(value = { 
+    @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Success", response = Service.class),
         @ApiResponse(code = 403, message = "Unauthorized", response = Error.class),
         @ApiResponse(code = 404, message = "The specified resource was not found", response = Error.class) })
     @RequestMapping(value = "/service",
-        produces = { "application/json" }, 
+        produces = { "application/json" },
         method = RequestMethod.GET)
     default ResponseEntity<Service> service() {
         getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"license\" : \"Apache-2.0\", \"authorEmail\" : \"author@example.com\", \"author\" : \"Example Author\", \"name\" : \"awesome-date-annotator\", \"description\" : \"An awesome Date Annotator based on regex patterns\", \"repository\" : \"github:awesome-org/awesome-date-annotator\", \"version\" : \"1.0.0\", \"url\" : \"https://openapi-generator.tech\" }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
+            // for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+            //     if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+            //         String exampleString = "{ \"license\" : \"Apache-2.0\", \"authorEmail\" : \"author@example.com\", \"author\" : \"Example Author\", \"name\" : \"awesome-date-annotator\", \"description\" : \"An awesome Date Annotator based on regex patterns\", \"repository\" : \"github:awesome-org/awesome-date-annotator\", \"version\" : \"1.0.0\", \"url\" : \"https://openapi-generator.tech\" }";
+            //         ApiUtil.setExampleResponse(request, "application/json", exampleString);
+            //         break;
+            //     }
+            // }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        Service service = new Service()
+            .name("date-annotator-example")
+            .version("0.1.6")
+            .license("Apache-2.0")
+            .repository("github:nlpsandbox/date-annotator-example-java")
+            .description("An example implementation of the NLP Sandbox Date Annotator")
+            .author("The NLP Sandbox Team")
+            .authorEmail("thomas.schaffter@sagebionetworks.org")
+            .url(URI.create("https://github.com/nlpsandbox/date-annotator-example-java"));
+        return new ResponseEntity<Service>(service, HttpStatus.OK);
 
     }
 

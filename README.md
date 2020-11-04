@@ -5,7 +5,7 @@
 [![GitHub CI](https://img.shields.io/github/workflow/status/nlpsandbox/date-annotator-example-java/ci.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example-java)
 [![GitHub License](https://img.shields.io/github/license/nlpsandbox/date-annotator-example-java.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example-java)
 
-An example implementation of the [NLP Sandbox Date Annotator] using Java-Spring
+An example implementation of the [NLP Sandbox Date Annotator] using Java Spring
 
 ## Specification
 

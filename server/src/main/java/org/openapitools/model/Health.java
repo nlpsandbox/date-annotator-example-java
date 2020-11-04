@@ -21,7 +21,7 @@ public class Health   {
    */
   public enum StatusEnum {
     PASS("pass"),
-    
+
     WARN("warn");
 
     private String value;
@@ -96,7 +96,7 @@ public class Health   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Health {\n");
-    
+
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
