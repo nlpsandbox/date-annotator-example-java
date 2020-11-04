@@ -8,7 +8,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import org.openapitools.model.Entity;
-import org.openapitools.model.NoteAllOf;
 import org.openapitools.model.User;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
@@ -46,7 +45,7 @@ public class Note   {
    */
   public enum TypeEnum {
     PATHOLOGY("pathology"),
-    
+
     PHONE_CALL("phone_call");
 
     private String value;
@@ -251,7 +250,7 @@ public class Note   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Note {\n");
-    
+
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");

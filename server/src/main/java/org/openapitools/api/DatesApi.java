@@ -27,6 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -49,25 +50,28 @@ public interface DatesApi {
      *         or Unauthorized (status code 403)
      */
     @ApiOperation(value = "Get all date annotations", nickname = "datesReadAll", notes = "Returns the date annotations", response = DateAnnotation.class, responseContainer = "List", tags={ "Date", })
-    @ApiResponses(value = { 
+    @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Success", response = DateAnnotation.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Unauthorized", response = Error.class) })
     @RequestMapping(value = "/dates",
-        produces = { "application/json" }, 
+        produces = { "application/json" },
         consumes = { "application/json" },
         method = RequestMethod.POST)
     default ResponseEntity<List<DateAnnotation>> datesReadAll(@ApiParam(value = ""  )  @Valid @RequestBody(required = false) List<Note> note) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "null";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        List<DateAnnotation> annotations = new ArrayList<DateAnnotation>();
+        note.forEach((n) -> {
+            // TODO: Extract annotations from the text of the Note object n
+            String text = n.getText();
+            System.out.print(text);
 
+            annotations.add(new DateAnnotation()
+                .start(123)
+                .length(10)
+                .noteId(12)
+                .text("09-03-1999")
+                .format("MM-DD-YYYY"));
+        });
+        return new ResponseEntity<List<DateAnnotation>>(annotations, HttpStatus.OK);
     }
 
 }
