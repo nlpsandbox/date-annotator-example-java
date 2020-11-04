@@ -32,3 +32,9 @@ Build and start the Date Annotator.
 
 When running, the Date Annotator provides a web interface (<http://localhost:8080>)
 that you can use to explore the input, output and actions available.
+
+<!-- Definitions -->
+
+[NLP Sandbox Date Annotator]: https://github.com/Sage-Bionetworks/nlp-sandbox-schemas
+[NLP Sandbox Date Annotator OpenAPI specification]: https://github.com/Sage-Bionetworks/nlp-sandbox-schemas
+<!-- [OpenAPITools/openapi-generator]: https://github.com/OpenAPITools/openapi-generator -->
