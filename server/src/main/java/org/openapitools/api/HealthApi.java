@@ -47,25 +47,26 @@ public interface HealthApi {
      *         or The specified resource was not found (status code 404)
      */
     @ApiOperation(value = "Get Health", nickname = "health", notes = "Get the health of the API", response = Health.class, tags={ "Health", })
-    @ApiResponses(value = { 
+    @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Success", response = Health.class),
         @ApiResponse(code = 403, message = "Unauthorized", response = Error.class),
         @ApiResponse(code = 404, message = "The specified resource was not found", response = Error.class) })
     @RequestMapping(value = "/health",
-        produces = { "application/json" }, 
+        produces = { "application/json" },
         method = RequestMethod.GET)
     default ResponseEntity<Health> health() {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"status\" : \"pass\" }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
+        // getRequest().ifPresent(request -> {
+        //     for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+        //         if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+        //             String exampleString = "{ \"status\" : \"pass\" }";
+        //             ApiUtil.setExampleResponse(request, "application/json", exampleString);
+        //             break;
+        //         }
+        //     }
+        // });
+        Health health = new Health();
+        health.setStatus(Health.StatusEnum.PASS);
+        return new ResponseEntity<Health>(health, HttpStatus.OK);
     }
 
 }
