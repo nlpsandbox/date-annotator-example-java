@@ -64,8 +64,7 @@ public interface HealthApi {
         //         }
         //     }
         // });
-        Health health = new Health();
-        health.setStatus(Health.StatusEnum.PASS);
+        Health health = new Health().status(Health.StatusEnum.PASS);
         return new ResponseEntity<Health>(health, HttpStatus.OK);
     }
 
