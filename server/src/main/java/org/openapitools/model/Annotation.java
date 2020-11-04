@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import org.openapitools.model.AnnotationAllOf;
 import org.openapitools.model.Entity;
 import org.openapitools.model.User;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -263,7 +262,7 @@ public class Annotation   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Annotation {\n");
-    
+
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
