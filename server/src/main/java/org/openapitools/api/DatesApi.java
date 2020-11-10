@@ -5,6 +5,7 @@
  */
 package org.openapitools.api;
 
+import org.cd2h.nlpsandbox.DateExtractor;
 import org.openapitools.model.DateAnnotation;
 import org.openapitools.model.Error;
 import java.util.List;
@@ -58,19 +59,16 @@ public interface DatesApi {
         consumes = { "application/json" },
         method = RequestMethod.POST)
     default ResponseEntity<List<DateAnnotation>> datesReadAll(@ApiParam(value = ""  )  @Valid @RequestBody(required = false) List<Note> note) {
+        DateExtractor de = new DateExtractor();
+
         List<DateAnnotation> annotations = new ArrayList<DateAnnotation>();
         note.forEach((n) -> {
             // TODO: Extract annotations from the text of the Note object n
             String text = n.getText();
             System.out.print(text);
-
-            annotations.add(new DateAnnotation()
-                .start(123)
-                .length(10)
-                .noteId(12)
-                .text("09-03-1999")
-                .format("MM-DD-YYYY"));
+            annotations.addAll(de.findDatesFromString(text));
         });
+
         return new ResponseEntity<List<DateAnnotation>>(annotations, HttpStatus.OK);
     }
 
