@@ -53,32 +53,13 @@ public interface TextDateAnnotationsApi {
         consumes = { "application/json" }
     )
     default ResponseEntity<TextDateAnnotations> createTextDateAnnotations(@ApiParam(value = ""  )  @Valid @RequestBody(required = false) TextDateAnnotationRequest textDateAnnotationRequest) {
-        // DateExtractor extractor = new DateExtractor();
+        String text = textDateAnnotationRequest.getNote().getText();
+        List<TextDateAnnotation> annotations = new DateExtractor()
+            .findDatesFromString(text);
+        TextDateAnnotations res = new TextDateAnnotations()
+            .textDateAnnotations(annotations);
 
-        // String text = n.getText();
-        //     System.out.print(text);
-        //     annotations.addAll(de.findDatesFromString(text));
-
-        Note note = textDateAnnotationRequest.getNote();
-        System.out.print(note.getText());
-
-
-        TextDateAnnotations annotations = new TextDateAnnotations();
-
-        // List<TextDateAnnotation> textDateAnnotations = new ArrayList<TextDateAnnotation>();
-        // note.forEach((n) -> {
-        //     // TODO: Extract annotations from the text of the Note object n
-        //     String text = n.getText();
-        //     System.out.print(text);
-
-        //     annotations.add(new DateAnnotation()
-        //         .start(123)
-        //         .length(10)
-        //         .noteId(12)
-        //         .text("09-03-1999")
-        //         .format("MM-DD-YYYY"));
-        // });
-        return new ResponseEntity<TextDateAnnotations>(annotations, HttpStatus.OK);
+        return new ResponseEntity<TextDateAnnotations>(res, HttpStatus.OK);
     }
 
 }

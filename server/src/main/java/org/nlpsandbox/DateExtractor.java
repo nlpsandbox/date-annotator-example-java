@@ -31,48 +31,44 @@ public class DateExtractor {
         }
     }
 
-    static ArrayList<NamedPattern> datePatterns;
+    static List<NamedPattern> datePatterns;
 
     public DateExtractor(){
-        // refer to https://github.com/Sage-Bionetworks/nlp-sandbox-date-annotator-example/blob/develop/server/openapi_server/controllers/date_controller.py#L32-L47
-        // "MM/DD/YYYY" and  "MM-DD-YYYY"
         datePatterns = new ArrayList<>();
         datePatterns.add(new NamedPattern("DD/MM/YYYY",
                 Pattern.compile(
-                        "\\b([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])(/)([1-9]|0[1-9]|1[0-2])(/)(19[0-9][0-9]|20[0-9][0-9])")));
+                    "\\b([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])(/)([1-9]|0[1-9]|1[0-2])(/)(19[0-9][0-9]|20[0-9][0-9])")));
 
         datePatterns.add(new NamedPattern("MM/DD/YYYY",
                 Pattern.compile(
-                        "\\b([1-9]|0[1-9]|1[0-2])(/)([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])(/)(19[0-9][0-9]|20[0-9][0-9])")));
+                    "\\b([1-9]|0[1-9]|1[0-2])(/)([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])(/)(19[0-9][0-9]|20[0-9][0-9])")));
 
         datePatterns.add(new NamedPattern("MM-DD-YYYY",
                 Pattern.compile(
-                        "\\b([1-9]|0[1-9]|1[0-2])(-)([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])(-)(19[0-9][0-9]|20[0-9][0-9])")));
+                    "\\b([1-9]|0[1-9]|1[0-2])(-)([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])(-)(19[0-9][0-9]|20[0-9][0-9])")));
 
-
-        datePatterns.add(new NamedPattern("MMMM", Pattern.compile("\\b(January|February|March|April|May|June|" +
-                "July|August|September|October|November|" +
-                "December)")));
+        datePatterns.add(new NamedPattern("MMMM",
+                Pattern.compile("\\b(January|February|March|April|May|June|" +
+                    "July|August|September|October|November|" +
+                    "December)")));
     }
 
     public List<TextDateAnnotation> findDatesFromString(String sentence){
 
-        ArrayList<TextDateAnnotation> annots = new ArrayList<>();
+        List<TextDateAnnotation> annotations = new ArrayList<>();
         for (NamedPattern np: datePatterns) {
             // Now create matcher object.
             Matcher m = np.pattern.matcher(sentence);
             while (m.find()) {
-                System.out.println(String.format("Found matched pattern \"%s\" in value: %s", np.name, m.group(0) ));
-
-                annots.add(new TextDateAnnotation()
+                annotations.add(new TextDateAnnotation()
                         .start(m.start(0))
                         .length(m.group(0).length())
                         .text(m.group(0))
                         .dateFormat(np.name)
-                        .confidence(90.5f));
+                        .confidence(92.5f));
             }
         }
-        return annots;
+        return annotations;
     }
 
     public static void main(String[] args) {
@@ -82,6 +78,5 @@ public class DateExtractor {
 
         String str2 = "Today is 26/11/2020. ";
         de.findDatesFromString(str2);
-
     }
 }
