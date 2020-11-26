@@ -17,8 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.ServletContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-11-03T16:14:43.095400-08:00[America/Los_Angeles]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-11-26T14:44:24.992301-08:00[America/Los_Angeles]")
 @Configuration
 @EnableSwagger2
 public class OpenAPIDocumentationConfig {
@@ -30,7 +29,7 @@ public class OpenAPIDocumentationConfig {
             .license("Apache 2.0")
             .licenseUrl("https://github.com/Sage-Bionetworks/nlp-sandbox/blob/main/LICENSE")
             .termsOfServiceUrl("https://Sage-Bionetworks.github.io/nlp-sandbox-schemas")
-            .version("0.1.6")
+            .version("0.2.2")
             .contact(new Contact("","", "thomas.schaffter@sagebionetworks.org"))
             .build();
     }

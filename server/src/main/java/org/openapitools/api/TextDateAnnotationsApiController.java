@@ -7,12 +7,12 @@ import java.util.Optional;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-11-26T14:44:24.992301-08:00[America/Los_Angeles]")
 @Controller
 @RequestMapping("${openapi.nLPSandboxDateAnnotator.base-path:/api/v1}")
-public class ServiceApiController implements ServiceApi {
+public class TextDateAnnotationsApiController implements TextDateAnnotationsApi {
 
     private final NativeWebRequest request;
 
     @org.springframework.beans.factory.annotation.Autowired
-    public ServiceApiController(NativeWebRequest request) {
+    public TextDateAnnotationsApiController(NativeWebRequest request) {
         this.request = request;
     }
 
