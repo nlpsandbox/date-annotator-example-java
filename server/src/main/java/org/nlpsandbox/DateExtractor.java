@@ -1,10 +1,11 @@
-package org.cd2h.nlpsandbox;
+package org.nlpsandbox;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.openapitools.model.DateAnnotation;
+
+import org.openapitools.model.TextDateAnnotation;
 
 public class DateExtractor {
 
@@ -54,21 +55,21 @@ public class DateExtractor {
                 "December)")));
     }
 
-    public List<DateAnnotation> findDatesFromString(String sentence){
+    public List<TextDateAnnotation> findDatesFromString(String sentence){
 
-        ArrayList<DateAnnotation> annots = new ArrayList<>();
+        ArrayList<TextDateAnnotation> annots = new ArrayList<>();
         for (NamedPattern np: datePatterns) {
             // Now create matcher object.
             Matcher m = np.pattern.matcher(sentence);
             while (m.find()) {
                 System.out.println(String.format("Found matched pattern \"%s\" in value: %s", np.name, m.group(0) ));
 
-                annots.add(new DateAnnotation()
+                annots.add(new TextDateAnnotation()
                         .start(m.start(0))
                         .length(m.group(0).length())
-                        .noteId(null)
                         .text(m.group(0))
-                        .format(np.name));
+                        .dateFormat(np.name)
+                        .confidence(90.5f));
             }
         }
         return annots;

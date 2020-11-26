@@ -6,7 +6,9 @@
 package org.openapitools.api;
 
 import org.openapitools.model.Error;
+import org.openapitools.model.Note;
 import org.openapitools.model.TextDateAnnotationRequest;
+import org.openapitools.model.TextDateAnnotation;
 import org.openapitools.model.TextDateAnnotations;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
@@ -22,6 +24,8 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
+import org.nlpsandbox.DateExtractor;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-11-26T14:44:24.992301-08:00[America/Los_Angeles]")
 @Validated
 @Api(value = "textDateAnnotations", description = "the textDateAnnotations API")
@@ -40,7 +44,7 @@ public interface TextDateAnnotationsApi {
      *         or Unauthorized (status code 403)
      */
     @ApiOperation(value = "Annotate dates in a clinical note", nickname = "createTextDateAnnotations", notes = "Return the date annotations found in a clinical note", response = TextDateAnnotations.class, tags={ "TextDateAnnotation", })
-    @ApiResponses(value = { 
+    @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Success", response = TextDateAnnotations.class),
         @ApiResponse(code = 403, message = "Unauthorized", response = Error.class) })
     @PostMapping(
@@ -49,17 +53,32 @@ public interface TextDateAnnotationsApi {
         consumes = { "application/json" }
     )
     default ResponseEntity<TextDateAnnotations> createTextDateAnnotations(@ApiParam(value = ""  )  @Valid @RequestBody(required = false) TextDateAnnotationRequest textDateAnnotationRequest) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"textDateAnnotations\" : [ { \"start\" : 42, \"length\" : 10, \"text\" : \"10/26/2020\", \"dateFormat\" : \"MM/DD/YYYY\" }, { \"start\" : 42, \"length\" : 10, \"text\" : \"10/26/2020\", \"dateFormat\" : \"MM/DD/YYYY\" } ] }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        // DateExtractor extractor = new DateExtractor();
 
+        // String text = n.getText();
+        //     System.out.print(text);
+        //     annotations.addAll(de.findDatesFromString(text));
+
+        Note note = textDateAnnotationRequest.getNote();
+        System.out.print(note.getText());
+
+
+        TextDateAnnotations annotations = new TextDateAnnotations();
+
+        // List<TextDateAnnotation> textDateAnnotations = new ArrayList<TextDateAnnotation>();
+        // note.forEach((n) -> {
+        //     // TODO: Extract annotations from the text of the Note object n
+        //     String text = n.getText();
+        //     System.out.print(text);
+
+        //     annotations.add(new DateAnnotation()
+        //         .start(123)
+        //         .length(10)
+        //         .noteId(12)
+        //         .text("09-03-1999")
+        //         .format("MM-DD-YYYY"));
+        // });
+        return new ResponseEntity<TextDateAnnotations>(annotations, HttpStatus.OK);
     }
 
 }
