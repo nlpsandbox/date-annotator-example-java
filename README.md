@@ -25,8 +25,8 @@ The command below starts the Date Annotator locally.
 Build and start the Date Annotator.
 
     cd server/
-    mvn package
-    java -jar target/openapi-spring-0.1.6.jar
+    mvn clean package
+    java -jar target/openapi-spring-0.2.2.jar
 
 ## Interactive documentation
 

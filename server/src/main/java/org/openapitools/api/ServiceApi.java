@@ -50,8 +50,8 @@ public interface ServiceApi {
     )
     default ResponseEntity<Service> service() {
         Service service = new Service()
-            .name("date-annotator-example")
-            .version("0.1.6")
+            .name("date-annotator-example-java")
+            .version("0.2.2")
             .license("Apache-2.0")
             .repository("github:nlpsandbox/date-annotator-example-java")
             .description("An example implementation of the NLP Sandbox Date Annotator")
