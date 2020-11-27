@@ -1,8 +1,7 @@
 FROM python:3.8.5-slim-buster
 
-ENV PIP_NO_CACHE_DIR=off
 ENV APP_DIR=/opt/app
-ENV APP_VERSION="0.1.6"
+ENV APP_VERSION="0.2.2"
 
 # Safer bash scripts with 'set -euxo pipefail'
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
@@ -14,11 +13,8 @@ RUN mkdir -p /usr/share/man/man1
 # hadolint ignore=DL3008
 RUN apt-get update -qq -y \
     && apt-get install --no-install-recommends -qq -y \
-        build-essential \
+        # build-essential \
         gosu \
-        libpcre3 \
-        libpcre3-dev \
-        # Java
         default-jre \
         maven \
     && apt-get -y autoclean \
@@ -27,12 +23,9 @@ RUN apt-get update -qq -y \
 
 # Copy server files
 COPY src ${APP_DIR}/src
-COPY requirements.txt pom.xml app.ini ${APP_DIR}/
+COPY pom.xml ${APP_DIR}/
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
-
-# Install dependencies
-RUN pip install -r ${APP_DIR}/requirements.txt
 
 # Build app
 WORKDIR ${APP_DIR}
@@ -44,5 +37,3 @@ EXPOSE 8080
 
 # Set the entrypoint script and the default command run by the container
 ENTRYPOINT ["java", "-jar", "target/app.jar"]
-# ENTRYPOINT ["/docker-entrypoint.sh"]
-# CMD ["uwsgi", "--ini", "app.ini", "--http-socket", ":8080"]
