@@ -14,8 +14,7 @@ import javax.validation.constraints.*;
  * Information about an NLP service
  */
 @ApiModel(description = "Information about an NLP service")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-11-03T16:14:43.095400-08:00[America/Los_Angeles]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-11-26T14:44:24.992301-08:00[America/Los_Angeles]")
 public class Service   {
   @JsonProperty("name")
   private String name;
@@ -204,7 +203,7 @@ public class Service   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -248,7 +247,7 @@ public class Service   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -9,8 +9,8 @@ An example implementation of the [NLP Sandbox Date Annotator] using Java Spring
 
 ## Specification
 
-- Annotates date strings in clinical notes using simple regular expressions
 - Implements the [NLP Sandbox Date Annotator OpenAPI specification]
+- Annotates date strings in clinical notes using simple regular expressions
 
 ## Usage
 
@@ -26,7 +26,7 @@ Build and start the Date Annotator.
 
     cd server/
     mvn package
-    java -jar target/openapi-spring-0.1.6.jar
+    java -jar target/openapi-spring-0.2.2.jar
 
 ## Interactive documentation
 

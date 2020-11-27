@@ -11,6 +11,10 @@ on:
       - '*.*.*'
   pull_request:
 
+
+env:
+  docker_repository: nlpsandbox/person-name-annotator-example
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -38,7 +42,7 @@ jobs:
     - name: Prepare
       id: prep
       run: |
-        DOCKER_IMAGE=nlpsandbox/date-annotator-example-java
+        DOCKER_IMAGE=${{ env.docker_repository }}
         VERSION=noop
         PUSH=false
         if [ "${{ github.event_name }}" = "schedule" ]; then
@@ -99,4 +103,4 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
-        repository: nlpsandbox/date-annotator-example-java
+        repository: ${{ env.docker_repository }}
