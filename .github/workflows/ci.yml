@@ -13,7 +13,7 @@ on:
 
 
 env:
-  docker_repository: nlpsandbox/person-name-annotator-example
+  docker_repository: nlpsandbox/date-annotator-example-java
 
 jobs:
   lint:
