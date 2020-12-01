@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Home redirection to OpenAPI api documentation
  */
 @Controller
-public class HomeController {
+public class OpenAPIDocumentationController {
 
-    @RequestMapping("/")
+    @RequestMapping("/api/v1/ui")
     public String index() {
-        return "redirect:/api/v1/service";
+        return "redirect:/swagger-ui.html";
     }
 
 }
