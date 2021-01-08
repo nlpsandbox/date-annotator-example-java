@@ -3,7 +3,7 @@
     "version": "0.2.2",
     "license": "Apache-2.0",
     "devDependencies": {
-        "@openapitools/openapi-generator-cli": "^2.1.7"
+        "@openapitools/openapi-generator-cli": "^2.1.16"
     },
     "scripts": {
         "generate:server": "openapi-generator generate -g spring -o server -i $npm_config_spec"
