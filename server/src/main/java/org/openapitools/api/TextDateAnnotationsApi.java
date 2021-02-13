@@ -7,6 +7,7 @@ package org.openapitools.api;
 
 import org.openapitools.model.Error;
 import org.openapitools.model.TextDateAnnotationRequest;
+import org.openapitools.model.TextDateAnnotation;
 import org.openapitools.model.TextDateAnnotations;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
@@ -56,17 +57,13 @@ public interface TextDateAnnotationsApi {
         consumes = { "application/json" }
     )
     default ResponseEntity<TextDateAnnotations> createTextDateAnnotations(@ApiParam(value = ""  )  @Valid @RequestBody(required = false) TextDateAnnotationRequest textDateAnnotationRequest) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"textDateAnnotations\" : [ { \"start\" : 42, \"length\" : 10, \"text\" : \"10/26/2020\", \"dateFormat\" : \"MM/DD/YYYY\", \"confidence\" : 95.5 }, { \"start\" : 42, \"length\" : 10, \"text\" : \"10/26/2020\", \"dateFormat\" : \"MM/DD/YYYY\", \"confidence\" : 95.5 } ] }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        String text = textDateAnnotationRequest.getNote().getText();
+        List<TextDateAnnotation> annotations = new DateExtractor()
+            .findDatesFromString(text);
+        TextDateAnnotations res = new TextDateAnnotations()
+            .textDateAnnotations(annotations);
 
+        return new ResponseEntity<TextDateAnnotations>(res, HttpStatus.OK);
     }
 
 }

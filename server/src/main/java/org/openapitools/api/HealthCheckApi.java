@@ -41,7 +41,7 @@ public interface HealthCheckApi {
      *         or The request cannot be fulfilled due to an unexpected server error (status code 500)
      */
     @ApiOperation(value = "Get health check information", nickname = "getHealthCheck", notes = "Get information about the health of the service", response = HealthCheck.class, tags={ "HealthCheck", })
-    @ApiResponses(value = { 
+    @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Success", response = HealthCheck.class),
         @ApiResponse(code = 404, message = "The specified resource was not found", response = Error.class),
         @ApiResponse(code = 500, message = "The request cannot be fulfilled due to an unexpected server error", response = Error.class) })
@@ -50,17 +50,9 @@ public interface HealthCheckApi {
         produces = { "application/json" }
     )
     default ResponseEntity<HealthCheck> getHealthCheck() {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"status\" : \"pass\" }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
+        HealthCheck healthCheck = new HealthCheck()
+            .status(HealthCheck.StatusEnum.PASS);
+        return new ResponseEntity<HealthCheck>(healthCheck, HttpStatus.OK);
     }
 
 }
