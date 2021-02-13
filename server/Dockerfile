@@ -1,7 +1,7 @@
 FROM python:3.8.5-slim-buster
 
 ENV APP_DIR=/opt/app
-ENV APP_VERSION="0.2.2"
+ENV APP_VERSION="1.0.0"
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
