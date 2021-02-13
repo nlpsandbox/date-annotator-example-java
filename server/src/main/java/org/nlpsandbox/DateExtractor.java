@@ -35,22 +35,22 @@ public class DateExtractor {
 
     public DateExtractor(){
         datePatterns = new ArrayList<>();
-        datePatterns.add(new NamedPattern("DD/MM/YYYY",
-                Pattern.compile(
-                    "\\b([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])(/)([1-9]|0[1-9]|1[0-2])(/)(19[0-9][0-9]|20[0-9][0-9])")));
-
         datePatterns.add(new NamedPattern("MM/DD/YYYY",
-                Pattern.compile(
-                    "\\b([1-9]|0[1-9]|1[0-2])(/)([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])(/)(19[0-9][0-9]|20[0-9][0-9])")));
+            Pattern.compile(
+                "\\b([1-9]|0[1-9]|1[0-2])(/)([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])(/)(19[0-9][0-9]|20[0-9][0-9])")));
 
-        datePatterns.add(new NamedPattern("MM-DD-YYYY",
-                Pattern.compile(
-                    "\\b([1-9]|0[1-9]|1[0-2])(-)([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])(-)(19[0-9][0-9]|20[0-9][0-9])")));
+        datePatterns.add(new NamedPattern("DD.MM.YYYY",
+            Pattern.compile(
+                "\\b([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])(.)([1-9]|0[1-9]|1[0-2])(.)(19[0-9][0-9]|20[0-9][0-9])")));
+
+        datePatterns.add(new NamedPattern("YYYY",
+            Pattern.compile(
+                "\\b([1-9][1-9][0-9][0-9]|2[0-9][0-9][0-9])")));
 
         datePatterns.add(new NamedPattern("MMMM",
-                Pattern.compile("\\b(January|February|March|April|May|June|" +
-                    "July|August|September|October|November|" +
-                    "December)")));
+            Pattern.compile("\\b(January|February|March|April|May|June|" +
+                "July|August|September|October|November|" +
+                "December)")));
     }
 
     public List<TextDateAnnotation> findDatesFromString(String sentence){
@@ -65,7 +65,7 @@ public class DateExtractor {
                         .length(m.group(0).length())
                         .text(m.group(0))
                         .dateFormat(np.name)
-                        .confidence(92.5f));
+                        .confidence(95.5f));
             }
         }
         return annotations;

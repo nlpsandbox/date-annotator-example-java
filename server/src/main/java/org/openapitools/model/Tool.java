@@ -6,16 +6,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.net.URI;
+import org.openapitools.model.License;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * Information about an NLP service
+ * Information about an NLP tool
  */
-@ApiModel(description = "Information about an NLP service")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-11-26T14:44:24.992301-08:00[America/Los_Angeles]")
-public class Service   {
+@ApiModel(description = "Information about an NLP tool")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-12T21:49:56.981797-08:00[America/Los_Angeles]")
+public class Tool   {
   @JsonProperty("name")
   private String name;
 
@@ -23,7 +24,7 @@ public class Service   {
   private String version;
 
   @JsonProperty("license")
-  private String license;
+  private License license;
 
   @JsonProperty("repository")
   private String repository;
@@ -40,16 +41,23 @@ public class Service   {
   @JsonProperty("url")
   private URI url;
 
-  public Service name(String name) {
+  @JsonProperty("toolType")
+  private String toolType;
+
+  @JsonProperty("toolApiVersion")
+  private String toolApiVersion;
+
+  public Tool name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The service name
+   * The tool name
    * @return name
   */
-  @ApiModelProperty(example = "awesome-date-annotator", value = "The service name")
+  @ApiModelProperty(required = true, value = "The tool name")
+  @NotNull
 
 @Pattern(regexp="^[a-z0-9]+(?:-[a-z0-9]+)*$") @Size(min=3,max=60) 
   public String getName() {
@@ -60,16 +68,17 @@ public class Service   {
     this.name = name;
   }
 
-  public Service version(String version) {
+  public Tool version(String version) {
     this.version = version;
     return this;
   }
 
   /**
-   * The version of the service (SemVer string)
+   * The version of the tool (SemVer string)
    * @return version
   */
-  @ApiModelProperty(example = "1.0.0", value = "The version of the service (SemVer string)")
+  @ApiModelProperty(required = true, value = "The version of the tool (SemVer string)")
+  @NotNull
 
 @Pattern(regexp="^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$") @Size(min=1) 
   public String getVersion() {
@@ -80,27 +89,29 @@ public class Service   {
     this.version = version;
   }
 
-  public Service license(String license) {
+  public Tool license(License license) {
     this.license = license;
     return this;
   }
 
   /**
-   * The license of this service (spdx.org/licenses Identifier)
+   * Get license
    * @return license
   */
-  @ApiModelProperty(example = "Apache-2.0", value = "The license of this service (spdx.org/licenses Identifier)")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
+  @Valid
 
-  public String getLicense() {
+  public License getLicense() {
     return license;
   }
 
-  public void setLicense(String license) {
+  public void setLicense(License license) {
     this.license = license;
   }
 
-  public Service repository(String repository) {
+  public Tool repository(String repository) {
     this.repository = repository;
     return this;
   }
@@ -109,7 +120,8 @@ public class Service   {
    * The place where the code lives
    * @return repository
   */
-  @ApiModelProperty(example = "github:awesome-org/awesome-date-annotator", value = "The place where the code lives")
+  @ApiModelProperty(required = true, value = "The place where the code lives")
+  @NotNull
 
 
   public String getRepository() {
@@ -120,16 +132,17 @@ public class Service   {
     this.repository = repository;
   }
 
-  public Service description(String description) {
+  public Tool description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * A short, one-sentence summary of the service
+   * A short, one-sentence summary of the tool
    * @return description
   */
-  @ApiModelProperty(example = "An awesome Date Annotator based on regex patterns", value = "A short, one-sentence summary of the service")
+  @ApiModelProperty(required = true, value = "A short, one-sentence summary of the tool")
+  @NotNull
 
 @Size(max=100) 
   public String getDescription() {
@@ -140,16 +153,17 @@ public class Service   {
     this.description = description;
   }
 
-  public Service author(String author) {
+  public Tool author(String author) {
     this.author = author;
     return this;
   }
 
   /**
-   * The author of the service
+   * The author of the tool
    * @return author
   */
-  @ApiModelProperty(example = "Example Author", value = "The author of the service")
+  @ApiModelProperty(required = true, value = "The author of the tool")
+  @NotNull
 
 
   public String getAuthor() {
@@ -160,7 +174,7 @@ public class Service   {
     this.author = author;
   }
 
-  public Service authorEmail(String authorEmail) {
+  public Tool authorEmail(String authorEmail) {
     this.authorEmail = authorEmail;
     return this;
   }
@@ -169,7 +183,8 @@ public class Service   {
    * The email address of the author
    * @return authorEmail
   */
-  @ApiModelProperty(example = "author@example.com", value = "The email address of the author")
+  @ApiModelProperty(required = true, value = "The email address of the author")
+  @NotNull
 
 @javax.validation.constraints.Email
   public String getAuthorEmail() {
@@ -180,16 +195,17 @@ public class Service   {
     this.authorEmail = authorEmail;
   }
 
-  public Service url(URI url) {
+  public Tool url(URI url) {
     this.url = url;
     return this;
   }
 
   /**
-   * The URL to the homepage of the service
+   * The URL to the homepage of the tool
    * @return url
   */
-  @ApiModelProperty(value = "The URL to the homepage of the service")
+  @ApiModelProperty(required = true, value = "The URL to the homepage of the tool")
+  @NotNull
 
   @Valid
 
@@ -201,6 +217,48 @@ public class Service   {
     this.url = url;
   }
 
+  public Tool toolType(String toolType) {
+    this.toolType = toolType;
+    return this;
+  }
+
+  /**
+   * The type of this tool
+   * @return toolType
+  */
+  @ApiModelProperty(example = "nlpsandbox:date-annotator", required = true, value = "The type of this tool")
+  @NotNull
+
+@Pattern(regexp="^[a-z0-9]+(?:-[a-z0-9]+)*(:)[a-z0-9]+(?:-[a-z0-9]+)*$") @Size(min=3,max=60) 
+  public String getToolType() {
+    return toolType;
+  }
+
+  public void setToolType(String toolType) {
+    this.toolType = toolType;
+  }
+
+  public Tool toolApiVersion(String toolApiVersion) {
+    this.toolApiVersion = toolApiVersion;
+    return this;
+  }
+
+  /**
+   * The version of the tool OpenAPI specification
+   * @return toolApiVersion
+  */
+  @ApiModelProperty(required = true, value = "The version of the tool OpenAPI specification")
+  @NotNull
+
+@Pattern(regexp="^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$") @Size(min=1) 
+  public String getToolApiVersion() {
+    return toolApiVersion;
+  }
+
+  public void setToolApiVersion(String toolApiVersion) {
+    this.toolApiVersion = toolApiVersion;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -210,26 +268,28 @@ public class Service   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Service service = (Service) o;
-    return Objects.equals(this.name, service.name) &&
-        Objects.equals(this.version, service.version) &&
-        Objects.equals(this.license, service.license) &&
-        Objects.equals(this.repository, service.repository) &&
-        Objects.equals(this.description, service.description) &&
-        Objects.equals(this.author, service.author) &&
-        Objects.equals(this.authorEmail, service.authorEmail) &&
-        Objects.equals(this.url, service.url);
+    Tool tool = (Tool) o;
+    return Objects.equals(this.name, tool.name) &&
+        Objects.equals(this.version, tool.version) &&
+        Objects.equals(this.license, tool.license) &&
+        Objects.equals(this.repository, tool.repository) &&
+        Objects.equals(this.description, tool.description) &&
+        Objects.equals(this.author, tool.author) &&
+        Objects.equals(this.authorEmail, tool.authorEmail) &&
+        Objects.equals(this.url, tool.url) &&
+        Objects.equals(this.toolType, tool.toolType) &&
+        Objects.equals(this.toolApiVersion, tool.toolApiVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version, license, repository, description, author, authorEmail, url);
+    return Objects.hash(name, version, license, repository, description, author, authorEmail, url, toolType, toolApiVersion);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Service {\n");
+    sb.append("class Tool {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -239,6 +299,8 @@ public class Service   {
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    authorEmail: ").append(toIndentedString(authorEmail)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    toolType: ").append(toIndentedString(toolType)).append("\n");
+    sb.append("    toolApiVersion: ").append(toIndentedString(toolApiVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

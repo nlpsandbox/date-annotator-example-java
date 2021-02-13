@@ -11,7 +11,6 @@ on:
       - '*.*.*'
   pull_request:
 
-
 env:
   docker_repository: nlpsandbox/date-annotator-example-java
 

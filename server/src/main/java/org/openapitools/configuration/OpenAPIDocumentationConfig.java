@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.ServletContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-11-26T14:44:24.992301-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-12T21:49:56.981797-08:00[America/Los_Angeles]")
 @Configuration
 @EnableSwagger2
 public class OpenAPIDocumentationConfig {
@@ -25,11 +25,11 @@ public class OpenAPIDocumentationConfig {
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
             .title("NLP Sandbox Date Annotator API")
-            .description("The OpenAPI specification implemented by NLP Sandbox Date Annotators. # Overview This NLP tool detects date references in the clinical note specified and returns a list of date annotations. ")
+            .description("# Overview This NLP tool detects references of dates in the clinical note given as input and returns a list of date annotations. ")
             .license("Apache 2.0")
-            .licenseUrl("https://github.com/Sage-Bionetworks/nlp-sandbox/blob/main/LICENSE")
-            .termsOfServiceUrl("https://Sage-Bionetworks.github.io/nlp-sandbox-schemas")
-            .version("0.2.2")
+            .licenseUrl("https://github.com/nlpsandbox/nlpsandbox-schemas/blob/develop/LICENSE")
+            .termsOfServiceUrl("https://nlpsandbox.io")
+            .version("1.0.0")
             .contact(new Contact("","", "thomas.schaffter@sagebionetworks.org"))
             .build();
     }

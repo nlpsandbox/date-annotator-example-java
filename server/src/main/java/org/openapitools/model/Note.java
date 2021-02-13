@@ -13,10 +13,10 @@ import javax.validation.constraints.*;
  * A clinical note
  */
 @ApiModel(description = "A clinical note")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-11-26T14:44:24.992301-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-12T21:49:56.981797-08:00[America/Los_Angeles]")
 public class Note   {
-  @JsonProperty("id")
-  private String id;
+  @JsonProperty("identifier")
+  private String identifier;
 
   @JsonProperty("text")
   private String text;
@@ -27,24 +27,25 @@ public class Note   {
   @JsonProperty("patientId")
   private String patientId;
 
-  public Note id(String id) {
-    this.id = id;
+  public Note identifier(String identifier) {
+    this.identifier = identifier;
     return this;
   }
 
   /**
-   * The ID of the note
-   * @return id
+   * The ID of the clinical note
+   * @return identifier
   */
-  @ApiModelProperty(readOnly = true, value = "The ID of the note")
+  @ApiModelProperty(example = "awesome-note", required = true, value = "The ID of the clinical note")
+  @NotNull
 
-
-  public String getId() {
-    return id;
+@Pattern(regexp="^[a-z0-9]+(?:-[a-z0-9]+)*$") @Size(min=3,max=60) 
+  public String getIdentifier() {
+    return identifier;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
   }
 
   public Note text(String text) {
@@ -56,7 +57,7 @@ public class Note   {
    * The content of the clinical note
    * @return text
   */
-  @ApiModelProperty(example = "On 12/26/2020, Ms. Chloe Price met with Dr. Prescott.", required = true, value = "The content of the clinical note")
+  @ApiModelProperty(required = true, value = "The content of the clinical note")
   @NotNull
 
 
@@ -77,7 +78,7 @@ public class Note   {
    * The note type (LOINC concept)
    * @return noteType
   */
-  @ApiModelProperty(example = "loinc:LP29684-5", required = true, value = "The note type (LOINC concept)")
+  @ApiModelProperty(required = true, value = "The note type (LOINC concept)")
   @NotNull
 
 
@@ -95,12 +96,13 @@ public class Note   {
   }
 
   /**
-   * The patient ID
+   * The ID of the FHIR patient
    * @return patientId
   */
-  @ApiModelProperty(example = "507f1f77bcf86cd799439011", value = "The patient ID")
+  @ApiModelProperty(example = "awesome-patient", required = true, value = "The ID of the FHIR patient")
+  @NotNull
 
-
+@Pattern(regexp="^[a-z0-9]+(?:-[a-z0-9]+)*$") @Size(min=3,max=60) 
   public String getPatientId() {
     return patientId;
   }
@@ -119,7 +121,7 @@ public class Note   {
       return false;
     }
     Note note = (Note) o;
-    return Objects.equals(this.id, note.id) &&
+    return Objects.equals(this.identifier, note.identifier) &&
         Objects.equals(this.text, note.text) &&
         Objects.equals(this.noteType, note.noteType) &&
         Objects.equals(this.patientId, note.patientId);
@@ -127,7 +129,7 @@ public class Note   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, text, noteType, patientId);
+    return Objects.hash(identifier, text, noteType, patientId);
   }
 
   @Override
@@ -135,7 +137,7 @@ public class Note   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Note {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    noteType: ").append(toIndentedString(noteType)).append("\n");
     sb.append("    patientId: ").append(toIndentedString(patientId)).append("\n");
