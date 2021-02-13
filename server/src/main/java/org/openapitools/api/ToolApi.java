@@ -6,6 +6,7 @@
 package org.openapitools.api;
 
 import org.openapitools.model.Error;
+import org.openapitools.model.License;
 import org.openapitools.model.Tool;
 import org.openapitools.model.ToolDependencies;
 import io.swagger.annotations.*;
@@ -21,6 +22,8 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -42,7 +45,7 @@ public interface ToolApi {
      *         or The request cannot be fulfilled due to an unexpected server error (status code 500)
      */
     @ApiOperation(value = "Get tool information", nickname = "getTool", notes = "Get information about the tool", response = Tool.class, tags={ "Tool", })
-    @ApiResponses(value = { 
+    @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Success", response = Tool.class),
         @ApiResponse(code = 404, message = "The specified resource was not found", response = Error.class),
         @ApiResponse(code = 500, message = "The request cannot be fulfilled due to an unexpected server error", response = Error.class) })
@@ -51,17 +54,18 @@ public interface ToolApi {
         produces = { "application/json" }
     )
     default ResponseEntity<Tool> getTool() {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"name\" : \"awesome-nlp-tool\", \"version\" : \"1.0.6\", \"license\" : \"apache-2.0\", \"repository\" : \"github:awesome-org/awesome-nlp-tool\", \"description\" : \"An awesome NLP Tool that takes as input X and outputs Y.\", \"author\" : \"Awesome Team\", \"authorEmail\" : \"author@example.com\", \"url\" : \"https://example.com\", \"toolType\" : \"nlpsandbox:date-annotator\", \"toolApiVersion\" : \"1.0.0\" }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
+        Tool tool = new Tool()
+            .name("date-annotator-example-java")
+            .version("1.0.0")
+            .license(License.APACHE_2_0)
+            .repository("github:nlpsandbox/date-annotator-example-java")
+            .description("Example implementation of the NLP Sandbox Date Annotator")
+            .author("The NLP Sandbox Team")
+            .authorEmail("thomas.schaffter@sagebionetworks.org")
+            .url(URI.create("https://github.com/nlpsandbox/date-annotator-example-java"))
+            .toolType("nlpsandbox:date-annotator")
+            .toolApiVersion("1.0.0");
+        return new ResponseEntity<Tool>(tool, HttpStatus.OK);
     }
 
 
@@ -74,7 +78,7 @@ public interface ToolApi {
      *         or The request cannot be fulfilled due to an unexpected server error (status code 500)
      */
     @ApiOperation(value = "Get tool dependencies", nickname = "getToolDependencies", notes = "Get the dependencies of this tool", response = ToolDependencies.class, tags={ "Tool", })
-    @ApiResponses(value = { 
+    @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Success", response = ToolDependencies.class),
         @ApiResponse(code = 404, message = "The specified resource was not found", response = Error.class),
         @ApiResponse(code = 500, message = "The request cannot be fulfilled due to an unexpected server error", response = Error.class) })
@@ -83,17 +87,9 @@ public interface ToolApi {
         produces = { "application/json" }
     )
     default ResponseEntity<ToolDependencies> getToolDependencies() {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"toolDependencies\" : [ { \"name\" : \"awesome-nlp-tool\", \"version\" : \"1.0.6\", \"license\" : \"apache-2.0\", \"repository\" : \"github:awesome-org/awesome-nlp-tool\", \"description\" : \"An awesome NLP Tool that takes as input X and outputs Y.\", \"author\" : \"Awesome Team\", \"authorEmail\" : \"author@example.com\", \"url\" : \"https://example.com\", \"toolType\" : \"nlpsandbox:date-annotator\", \"toolApiVersion\" : \"1.0.0\" }, { \"name\" : \"awesome-nlp-tool\", \"version\" : \"1.0.6\", \"license\" : \"apache-2.0\", \"repository\" : \"github:awesome-org/awesome-nlp-tool\", \"description\" : \"An awesome NLP Tool that takes as input X and outputs Y.\", \"author\" : \"Awesome Team\", \"authorEmail\" : \"author@example.com\", \"url\" : \"https://example.com\", \"toolType\" : \"nlpsandbox:date-annotator\", \"toolApiVersion\" : \"1.0.0\" } ] }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
+        ToolDependencies dependencies = new ToolDependencies()
+            .toolDependencies(new ArrayList<Tool>());
+        return new ResponseEntity<ToolDependencies>(dependencies, HttpStatus.OK);
     }
 
 }
