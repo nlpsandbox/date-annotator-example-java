@@ -16,11 +16,11 @@ import javax.validation.constraints.*;
  * A list of text date annotations
  */
 @ApiModel(description = "A list of text date annotations")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-11-26T14:44:24.992301-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-12T21:49:56.981797-08:00[America/Los_Angeles]")
 public class TextDateAnnotations   {
   @JsonProperty("textDateAnnotations")
   @Valid
-  private List<TextDateAnnotation> textDateAnnotations = null;
+  private List<TextDateAnnotation> textDateAnnotations = new ArrayList<>();
 
   public TextDateAnnotations textDateAnnotations(List<TextDateAnnotation> textDateAnnotations) {
     this.textDateAnnotations = textDateAnnotations;
@@ -28,9 +28,6 @@ public class TextDateAnnotations   {
   }
 
   public TextDateAnnotations addTextDateAnnotationsItem(TextDateAnnotation textDateAnnotationsItem) {
-    if (this.textDateAnnotations == null) {
-      this.textDateAnnotations = new ArrayList<>();
-    }
     this.textDateAnnotations.add(textDateAnnotationsItem);
     return this;
   }
@@ -39,7 +36,8 @@ public class TextDateAnnotations   {
    * A list of text date annotations
    * @return textDateAnnotations
   */
-  @ApiModelProperty(value = "A list of text date annotations")
+  @ApiModelProperty(required = true, value = "A list of text date annotations")
+  @NotNull
 
   @Valid
 

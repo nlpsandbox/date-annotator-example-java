@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A date annotation in a text
  */
 @ApiModel(description = "A date annotation in a text")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-11-26T14:44:24.992301-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-12T21:49:56.981797-08:00[America/Los_Angeles]")
 public class TextDateAnnotation   {
   @JsonProperty("start")
   private Integer start;
@@ -41,7 +41,7 @@ public class TextDateAnnotation   {
    * The position of the first character
    * @return start
   */
-  @ApiModelProperty(example = "42", required = true, value = "The position of the first character")
+  @ApiModelProperty(required = true, value = "The position of the first character")
   @NotNull
 
 
@@ -62,7 +62,7 @@ public class TextDateAnnotation   {
    * The length of the annotation
    * @return length
   */
-  @ApiModelProperty(example = "10", required = true, value = "The length of the annotation")
+  @ApiModelProperty(required = true, value = "The length of the annotation")
   @NotNull
 
 
@@ -83,7 +83,8 @@ public class TextDateAnnotation   {
    * The string annotated
    * @return text
   */
-  @ApiModelProperty(value = "The string annotated")
+  @ApiModelProperty(required = true, value = "The string annotated")
+  @NotNull
 
 
   public String getText() {
@@ -105,7 +106,7 @@ public class TextDateAnnotation   {
    * maximum: 100
    * @return confidence
   */
-  @ApiModelProperty(example = "95", value = "The confidence in the accuracy of the annotation")
+  @ApiModelProperty(value = "The confidence in the accuracy of the annotation")
 
 @DecimalMin("0") @DecimalMax("100") 
   public Float getConfidence() {

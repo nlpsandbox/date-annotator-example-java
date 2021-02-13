@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * Problem details (tools.ietf.org/html/rfc7807)
  */
 @ApiModel(description = "Problem details (tools.ietf.org/html/rfc7807)")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-11-26T14:44:24.992301-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-12T21:49:56.981797-08:00[America/Los_Angeles]")
 public class Error   {
   @JsonProperty("title")
   private String title;

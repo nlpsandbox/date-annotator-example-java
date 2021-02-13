@@ -5,40 +5,48 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.model.Note;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.model.Tool;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * An annotation request
+ * A list of tool dependencies
  */
-@ApiModel(description = "An annotation request")
+@ApiModel(description = "A list of tool dependencies")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-12T21:49:56.981797-08:00[America/Los_Angeles]")
-public class TextDateAnnotationRequest   {
-  @JsonProperty("note")
-  private Note note;
+public class ToolDependencies   {
+  @JsonProperty("toolDependencies")
+  @Valid
+  private List<Tool> toolDependencies = new ArrayList<>();
 
-  public TextDateAnnotationRequest note(Note note) {
-    this.note = note;
+  public ToolDependencies toolDependencies(List<Tool> toolDependencies) {
+    this.toolDependencies = toolDependencies;
+    return this;
+  }
+
+  public ToolDependencies addToolDependenciesItem(Tool toolDependenciesItem) {
+    this.toolDependencies.add(toolDependenciesItem);
     return this;
   }
 
   /**
-   * Get note
-   * @return note
+   * A list of tools
+   * @return toolDependencies
   */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of tools")
   @NotNull
 
   @Valid
 
-  public Note getNote() {
-    return note;
+  public List<Tool> getToolDependencies() {
+    return toolDependencies;
   }
 
-  public void setNote(Note note) {
-    this.note = note;
+  public void setToolDependencies(List<Tool> toolDependencies) {
+    this.toolDependencies = toolDependencies;
   }
 
 
@@ -50,21 +58,21 @@ public class TextDateAnnotationRequest   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TextDateAnnotationRequest textDateAnnotationRequest = (TextDateAnnotationRequest) o;
-    return Objects.equals(this.note, textDateAnnotationRequest.note);
+    ToolDependencies toolDependencies = (ToolDependencies) o;
+    return Objects.equals(this.toolDependencies, toolDependencies.toolDependencies);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(note);
+    return Objects.hash(toolDependencies);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TextDateAnnotationRequest {\n");
+    sb.append("class ToolDependencies {\n");
     
-    sb.append("    note: ").append(toIndentedString(note)).append("\n");
+    sb.append("    toolDependencies: ").append(toIndentedString(toolDependencies)).append("\n");
     sb.append("}");
     return sb.toString();
   }

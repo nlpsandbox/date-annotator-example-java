@@ -12,7 +12,8 @@ public class HomeController {
 
     @RequestMapping("/")
     public String index() {
-        return "redirect:/api/v1/service";
+        return "redirect:swagger-ui.html";
     }
+
 
 }
