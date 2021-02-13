@@ -1,11 +1,8 @@
 {
-    "name": "date-annotator-example-java",
-    "version": "0.2.2",
-    "license": "Apache-2.0",
     "devDependencies": {
-        "@openapitools/openapi-generator-cli": "^2.1.19"
+        "@openapitools/openapi-generator-cli": "2.1.23"
     },
     "scripts": {
-        "generate:server": "openapi-generator generate -g spring -o server -i $npm_config_spec"
+        "generate:server": "openapi-generator generate -g spring -o server -i $npm_config_specification"
     }
 }
