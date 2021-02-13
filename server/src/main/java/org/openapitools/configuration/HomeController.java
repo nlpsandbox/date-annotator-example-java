@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
+    // Redirections required by the NLP Sandbox
+
     @RequestMapping("/")
     public String index() {
-        // return "redirect:swagger-ui.html";
         return "redirect:/api/v1/tool";
     }
 
