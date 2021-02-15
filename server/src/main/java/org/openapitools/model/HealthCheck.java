@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * Represents the health of a service
  */
 @ApiModel(description = "Represents the health of a service")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-12T21:49:56.981797-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-14T20:17:34.317816-08:00[America/Los_Angeles]")
 public class HealthCheck   {
   /**
    * Indicates whether the service status is acceptable or not

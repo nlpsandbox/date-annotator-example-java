@@ -11,10 +11,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * An annotation request
+ * A request to annotate dates in a clinical note
  */
-@ApiModel(description = "An annotation request")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-12T21:49:56.981797-08:00[America/Los_Angeles]")
+@ApiModel(description = "A request to annotate dates in a clinical note")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-14T20:17:34.317816-08:00[America/Los_Angeles]")
 public class TextDateAnnotationRequest   {
   @JsonProperty("note")
   private Note note;

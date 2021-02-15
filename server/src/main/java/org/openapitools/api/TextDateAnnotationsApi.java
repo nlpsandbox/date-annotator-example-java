@@ -8,7 +8,7 @@ package org.openapitools.api;
 import org.openapitools.model.Error;
 import org.openapitools.model.TextDateAnnotationRequest;
 import org.openapitools.model.TextDateAnnotation;
-import org.openapitools.model.TextDateAnnotations;
+import org.openapitools.model.TextDateAnnotationResponse;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -46,9 +46,9 @@ public interface TextDateAnnotationsApi {
      *         or Invalid request (status code 400)
      *         or The request cannot be fulfilled due to an unexpected server error (status code 500)
      */
-    @ApiOperation(value = "Annotate dates in a clinical note", nickname = "createTextDateAnnotations", notes = "Return the date annotations found in a clinical note", response = TextDateAnnotations.class, tags={ "TextDateAnnotation", })
+    @ApiOperation(value = "Annotate dates in a clinical note", nickname = "createTextDateAnnotations", notes = "Return the date annotations found in a clinical note", response = TextDateAnnotationResponse.class, tags={ "TextDateAnnotation", })
     @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "Success", response = TextDateAnnotations.class),
+        @ApiResponse(code = 200, message = "Success", response = TextDateAnnotationResponse.class),
         @ApiResponse(code = 400, message = "Invalid request", response = Error.class),
         @ApiResponse(code = 500, message = "The request cannot be fulfilled due to an unexpected server error", response = Error.class) })
     @PostMapping(
@@ -56,14 +56,14 @@ public interface TextDateAnnotationsApi {
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    default ResponseEntity<TextDateAnnotations> createTextDateAnnotations(@ApiParam(value = ""  )  @Valid @RequestBody(required = false) TextDateAnnotationRequest textDateAnnotationRequest) {
+    default ResponseEntity<TextDateAnnotationResponse> createTextDateAnnotations(@ApiParam(value = ""  )  @Valid @RequestBody(required = false) TextDateAnnotationRequest textDateAnnotationRequest) {
         String text = textDateAnnotationRequest.getNote().getText();
         List<TextDateAnnotation> annotations = new DateExtractor()
             .findDatesFromString(text);
-        TextDateAnnotations res = new TextDateAnnotations()
+        TextDateAnnotationResponse res = new TextDateAnnotationResponse()
             .textDateAnnotations(annotations);
 
-        return new ResponseEntity<TextDateAnnotations>(res, HttpStatus.OK);
+        return new ResponseEntity<TextDateAnnotationResponse>(res, HttpStatus.OK);
     }
 
 }
