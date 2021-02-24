@@ -79,8 +79,9 @@ This step will depend on your preferred programming language-framework.
 
 - If you develop in Java-Spring, create a new repository from this [GitHub
   template].
-- If you develop in Python-Flask, create a new repository from the GitHub
-  template [nlpsandbox/date-annotator-example].
+- If you develop in Python-Flask, create a new repository from the template
+  provided by the GitHub repository [nlpsandbox/date-annotator-example] (click
+  on the button *Use this template*).
 
 If you prefer to develop using another language or if you want to learn how this
 repository has been generated, go to the section [Creating a new Date Annotator
