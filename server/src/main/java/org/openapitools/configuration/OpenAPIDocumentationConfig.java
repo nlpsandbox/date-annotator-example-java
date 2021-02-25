@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.ServletContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-14T20:17:34.317816-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-25T15:53:35.186246-08:00[America/Los_Angeles]")
 @Configuration
 @EnableSwagger2
 public class OpenAPIDocumentationConfig {
@@ -25,11 +25,11 @@ public class OpenAPIDocumentationConfig {
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
             .title("NLP Sandbox Date Annotator API")
-            .description("# Overview  This NLP tool detects references of dates in the clinical note given as input and returns a list of date annotations.  # Examples  - [NLP Sandbox Date Annotator (Python)](https://github.com/nlpsandbox/date-annotator-example) - [NLP Sandbox Date Annotator (Java)](https://github.com/nlpsandbox/date-annotator-example-java) ")
+            .description("# Introduction The Date Annotator is one of the first type of NLP Tools that can be benchmarked on [nlpsandbox.io](https://nlpsandbox.io). A Date Annotator takes as input a clinical note and outputs a list of predicted date annotations found in the clinical note. This OpenAPI document describes the specification of a Date Annotator. This specification includes the schemas of the input and output data, and the conditions that this annotator must meet if you want to benchmark its performance on [nlpsandbox.io](https://nlpsandbox.io). # Getting Started The GitHub repository [nlpsandbox/date-annotator-example](https://github.com/nlpsandbox/date-annotator-example) provides a simple example implementation of a Python-Flask Date Annotator. By the end of the tutorial available in this repository, you will have built a Docker image for a simple Date Annotator. You will then be able to submit this image to [nlpsandbox.io](https://nlpsandbox.io) to benchmark its performance. # Benchmarking Requirements The following conditions must be met by your Date Annotator if you want to benchmark its performance on [nlpsandbox.io](https://nlpsandbox.io). - The endpoint `/` must redirect to `/api/v1/tool`. - The endpoint `/ui` must redirect to the web interface (UI). - The output of this tool must be reproducible: a given input should always   generate the same output.  - This tool must not attempt to connect to remote server for reproducibility,   robustness, and security reasons. When benchmarked on [nlpsandbox.io](https://nlpsandbox.io),   this tool will not be able to connect to remote servers.  # Examples - [Date Annotator Example (Python)](https://github.com/nlpsandbox/date-annotator-example) - [Date Annotator Example (Java)](https://github.com/nlpsandbox/date-annotator-example-java) ")
             .license("Apache 2.0")
             .licenseUrl("https://github.com/nlpsandbox/nlpsandbox-schemas/blob/develop/LICENSE")
             .termsOfServiceUrl("https://nlpsandbox.io")
-            .version("1.0.0")
+            .version("1.0.1")
             .contact(new Contact("","", "thomas.schaffter@sagebionetworks.org"))
             .build();
     }

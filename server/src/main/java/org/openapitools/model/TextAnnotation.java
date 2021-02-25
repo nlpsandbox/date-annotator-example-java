@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * An annotation in a text
  */
 @ApiModel(description = "An annotation in a text")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-14T20:17:34.317816-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-25T15:53:35.186246-08:00[America/Los_Angeles]")
 public class TextAnnotation   {
   @JsonProperty("start")
   private Integer start;
@@ -101,7 +101,8 @@ public class TextAnnotation   {
    * maximum: 100
    * @return confidence
   */
-  @ApiModelProperty(value = "The confidence in the accuracy of the annotation")
+  @ApiModelProperty(required = true, value = "The confidence in the accuracy of the annotation")
+  @NotNull
 
 @DecimalMin("0") @DecimalMax("100") 
   public Float getConfidence() {
