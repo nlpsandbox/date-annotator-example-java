@@ -3,6 +3,7 @@
         "@openapitools/openapi-generator-cli": "2.1.23"
     },
     "scripts": {
-        "generate:server": "openapi-generator-cli generate -g spring -o server -i $npm_config_specification"
+        "generate:server": "openapi-generator-cli generate -g spring -o server -i $npm_config_specification",
+        "generate:server:latest": "openapi-generator-cli generate -g spring -o server -i https://nlpsandbox.github.io/nlpsandbox-schemas/physical-address-annotator/latest/openapi.json"
     }
 }
