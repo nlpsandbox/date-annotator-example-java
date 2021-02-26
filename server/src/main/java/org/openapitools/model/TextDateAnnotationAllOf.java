@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * TextDateAnnotationAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-14T20:17:34.317816-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-25T15:53:35.186246-08:00[America/Los_Angeles]")
 public class TextDateAnnotationAllOf   {
   @JsonProperty("dateFormat")
   private String dateFormat;

@@ -80,7 +80,9 @@ public enum License {
   
   UNLICENSE("unlicense"),
   
-  ZLIB("zlib");
+  ZLIB("zlib"),
+  
+  NONE("none");
 
   private String value;
 

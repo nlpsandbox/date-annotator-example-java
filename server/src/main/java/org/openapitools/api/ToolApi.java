@@ -56,7 +56,7 @@ public interface ToolApi {
     default ResponseEntity<Tool> getTool() {
         Tool tool = new Tool()
             .name("date-annotator-example-java")
-            .version("1.0.0")
+            .version("1.0.1")
             .license(License.APACHE_2_0)
             .repository("github:nlpsandbox/date-annotator-example-java")
             .description("Example implementation of the NLP Sandbox Date Annotator")
@@ -64,7 +64,7 @@ public interface ToolApi {
             .authorEmail("thomas.schaffter@sagebionetworks.org")
             .url(URI.create("https://github.com/nlpsandbox/date-annotator-example-java"))
             .toolType("nlpsandbox:date-annotator")
-            .toolApiVersion("1.0.0");
+            .toolApiVersion("1.0.1");
         return new ResponseEntity<Tool>(tool, HttpStatus.OK);
     }
 
