@@ -18,15 +18,18 @@ RUN apt-get update -qq -y \
     && apt-get -y autoremove \
     && rm -rf /var/lib/apt/lists/*
 
-COPY src ${APP_DIR}/src
-COPY pom.xml ${APP_DIR}/
-COPY docker-entrypoint.sh /
-RUN chmod +x /docker-entrypoint.sh
-
 WORKDIR ${APP_DIR}
+COPY src src/
+COPY pom.xml ./
 RUN mvn package \
     && mv target/openapi-spring-${APP_VERSION}.jar target/app.jar
 
+WORKDIR /
+COPY docker-entrypoint.sh .
+RUN chmod +x docker-entrypoint.sh
+
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "target/app.jar"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+CMD ["java", "-jar", "target/app.jar"]
