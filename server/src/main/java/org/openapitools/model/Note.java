@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * A clinical note
  */
 @ApiModel(description = "A clinical note")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-25T15:53:35.186246-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-03-19T19:33:58.212495-07:00[America/Los_Angeles]")
 public class Note   {
   @JsonProperty("identifier")
   private String identifier;
@@ -21,8 +21,8 @@ public class Note   {
   @JsonProperty("text")
   private String text;
 
-  @JsonProperty("noteType")
-  private String noteType;
+  @JsonProperty("type")
+  private String type;
 
   @JsonProperty("patientId")
   private String patientId;
@@ -69,25 +69,25 @@ public class Note   {
     this.text = text;
   }
 
-  public Note noteType(String noteType) {
-    this.noteType = noteType;
+  public Note type(String type) {
+    this.type = type;
     return this;
   }
 
   /**
    * The note type (LOINC concept)
-   * @return noteType
+   * @return type
   */
   @ApiModelProperty(required = true, value = "The note type (LOINC concept)")
   @NotNull
 
 
-  public String getNoteType() {
-    return noteType;
+  public String getType() {
+    return type;
   }
 
-  public void setNoteType(String noteType) {
-    this.noteType = noteType;
+  public void setType(String type) {
+    this.type = type;
   }
 
   public Note patientId(String patientId) {
@@ -123,13 +123,13 @@ public class Note   {
     Note note = (Note) o;
     return Objects.equals(this.identifier, note.identifier) &&
         Objects.equals(this.text, note.text) &&
-        Objects.equals(this.noteType, note.noteType) &&
+        Objects.equals(this.type, note.type) &&
         Objects.equals(this.patientId, note.patientId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(identifier, text, noteType, patientId);
+    return Objects.hash(identifier, text, type, patientId);
   }
 
   @Override
@@ -139,7 +139,7 @@ public class Note   {
     
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
-    sb.append("    noteType: ").append(toIndentedString(noteType)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    patientId: ").append(toIndentedString(patientId)).append("\n");
     sb.append("}");
     return sb.toString();
