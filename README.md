@@ -18,8 +18,8 @@ and outputs a list of predicted date annotations found in the clinical note.
 
 ### Specification
 
-- Date Annotator API version: 1.0.1
-- Tool version: 1.0.1
+- Date Annotator API version: 1.0.2
+- Tool version: 1.0.2
 - Docker image: [nlpsandbox/date-annotator-example-java]
 
 ## Model

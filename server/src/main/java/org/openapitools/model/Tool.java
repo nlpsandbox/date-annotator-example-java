@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * Information about an NLP tool
  */
 @ApiModel(description = "Information about an NLP tool")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-25T15:53:35.186246-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-03-19T19:33:58.212495-07:00[America/Los_Angeles]")
 public class Tool   {
   @JsonProperty("name")
   private String name;
@@ -41,11 +41,11 @@ public class Tool   {
   @JsonProperty("url")
   private URI url;
 
-  @JsonProperty("toolType")
-  private String toolType;
+  @JsonProperty("type")
+  private String type;
 
-  @JsonProperty("toolApiVersion")
-  private String toolApiVersion;
+  @JsonProperty("apiVersion")
+  private String apiVersion;
 
   public Tool name(String name) {
     this.name = name;
@@ -217,46 +217,46 @@ public class Tool   {
     this.url = url;
   }
 
-  public Tool toolType(String toolType) {
-    this.toolType = toolType;
+  public Tool type(String type) {
+    this.type = type;
     return this;
   }
 
   /**
    * The type of this tool
-   * @return toolType
+   * @return type
   */
   @ApiModelProperty(example = "nlpsandbox:date-annotator", required = true, value = "The type of this tool")
   @NotNull
 
 @Pattern(regexp="^[a-z0-9]+(?:-[a-z0-9]+)*(:)[a-z0-9]+(?:-[a-z0-9]+)*$") @Size(min=3,max=60) 
-  public String getToolType() {
-    return toolType;
+  public String getType() {
+    return type;
   }
 
-  public void setToolType(String toolType) {
-    this.toolType = toolType;
+  public void setType(String type) {
+    this.type = type;
   }
 
-  public Tool toolApiVersion(String toolApiVersion) {
-    this.toolApiVersion = toolApiVersion;
+  public Tool apiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
     return this;
   }
 
   /**
    * The version of the tool OpenAPI specification
-   * @return toolApiVersion
+   * @return apiVersion
   */
   @ApiModelProperty(required = true, value = "The version of the tool OpenAPI specification")
   @NotNull
 
 @Pattern(regexp="^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$") @Size(min=1) 
-  public String getToolApiVersion() {
-    return toolApiVersion;
+  public String getApiVersion() {
+    return apiVersion;
   }
 
-  public void setToolApiVersion(String toolApiVersion) {
-    this.toolApiVersion = toolApiVersion;
+  public void setApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
   }
 
 
@@ -277,13 +277,13 @@ public class Tool   {
         Objects.equals(this.author, tool.author) &&
         Objects.equals(this.authorEmail, tool.authorEmail) &&
         Objects.equals(this.url, tool.url) &&
-        Objects.equals(this.toolType, tool.toolType) &&
-        Objects.equals(this.toolApiVersion, tool.toolApiVersion);
+        Objects.equals(this.type, tool.type) &&
+        Objects.equals(this.apiVersion, tool.apiVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version, license, repository, description, author, authorEmail, url, toolType, toolApiVersion);
+    return Objects.hash(name, version, license, repository, description, author, authorEmail, url, type, apiVersion);
   }
 
   @Override
@@ -299,8 +299,8 @@ public class Tool   {
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    authorEmail: ").append(toIndentedString(authorEmail)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    toolType: ").append(toIndentedString(toolType)).append("\n");
-    sb.append("    toolApiVersion: ").append(toIndentedString(toolApiVersion)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }
