@@ -1,7 +1,7 @@
 # NLP Sandbox Date Annotator Example
 
 [![GitHub Release](https://img.shields.io/github/release/nlpsandbox/date-annotator-example-java.svg?include_prereleases&color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example-java/releases)
-[![GitHub CI](https://img.shields.io/github/workflow/status/nlpsandbox/date-annotator-example-java/ci.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example-java/actions)
+[![GitHub CI](https://img.shields.io/github/workflow/status/nlpsandbox/date-annotator-example-java/CI.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example-java/actions)
 [![GitHub License](https://img.shields.io/github/license/nlpsandbox/date-annotator-example-java.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example-java/blob/develop/LICENSE)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nlpsandbox/date-annotator-example-java.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/nlpsandbox/date-annotator-example-java)
 [![Discord](https://img.shields.io/discord/770484164393828373.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=Discord&logo=discord)](https://nlpsandbox.io/discord "Realtime support / chat with the community and the team")
@@ -52,7 +52,7 @@ Build and start the Date Annotator.
 
     cd server/
     mvn package
-    java -jar target/openapi-spring-1.0.0.jar
+    java -jar target/openapi-spring-1.1.0.jar
 
 ### Accessing the UI
 
