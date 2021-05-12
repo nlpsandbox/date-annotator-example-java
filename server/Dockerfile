@@ -1,7 +1,6 @@
 FROM python:3.9.4-slim-buster
 
 ENV APP_DIR=/opt/app
-ENV APP_VERSION="1.0.2"
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
@@ -21,8 +20,8 @@ RUN apt-get update -qq -y \
 WORKDIR ${APP_DIR}
 COPY src src/
 COPY pom.xml ./
-RUN mvn package \
-    && mv target/openapi-spring-${APP_VERSION}.jar target/app.jar
+RUN mvn clean package \
+    && mv target/openapi-spring-*.jar target/app.jar
 
 WORKDIR /
 COPY docker-entrypoint.sh .
