@@ -12,9 +12,8 @@ Example implementation of the [NLP Sandbox Date Annotator]
 ## Overview
 
 This repository provides a Java-Spring implementation of the [NLP Sandbox Date
-Annotator]. The Date Annotator is one of the first NLP Tools that can be
-benchmarked on [nlpsandbox.io]. A Date Annotator takes as input a clinical note
-and outputs a list of predicted date annotations found in the clinical note.
+Annotator]. A Date Annotator takes as input a clinical note and outputs a list
+of predicted date annotations found in the clinical note.
 
 ### Specification
 
