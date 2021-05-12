@@ -16,37 +16,37 @@ import javax.validation.constraints.*;
  * A list of tool dependencies
  */
 @ApiModel(description = "A list of tool dependencies")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-25T15:53:35.186246-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-11T19:27:30.163340-07:00[America/Los_Angeles]")
 public class ToolDependencies   {
-  @JsonProperty("toolDependencies")
+  @JsonProperty("tools")
   @Valid
-  private List<Tool> toolDependencies = new ArrayList<>();
+  private List<Tool> tools = new ArrayList<>();
 
-  public ToolDependencies toolDependencies(List<Tool> toolDependencies) {
-    this.toolDependencies = toolDependencies;
+  public ToolDependencies tools(List<Tool> tools) {
+    this.tools = tools;
     return this;
   }
 
-  public ToolDependencies addToolDependenciesItem(Tool toolDependenciesItem) {
-    this.toolDependencies.add(toolDependenciesItem);
+  public ToolDependencies addToolsItem(Tool toolsItem) {
+    this.tools.add(toolsItem);
     return this;
   }
 
   /**
    * A list of tools
-   * @return toolDependencies
+   * @return tools
   */
   @ApiModelProperty(required = true, value = "A list of tools")
   @NotNull
 
   @Valid
 
-  public List<Tool> getToolDependencies() {
-    return toolDependencies;
+  public List<Tool> getTools() {
+    return tools;
   }
 
-  public void setToolDependencies(List<Tool> toolDependencies) {
-    this.toolDependencies = toolDependencies;
+  public void setTools(List<Tool> tools) {
+    this.tools = tools;
   }
 
 
@@ -59,12 +59,12 @@ public class ToolDependencies   {
       return false;
     }
     ToolDependencies toolDependencies = (ToolDependencies) o;
-    return Objects.equals(this.toolDependencies, toolDependencies.toolDependencies);
+    return Objects.equals(this.tools, toolDependencies.tools);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(toolDependencies);
+    return Objects.hash(tools);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class ToolDependencies   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ToolDependencies {\n");
     
-    sb.append("    toolDependencies: ").append(toIndentedString(toolDependencies)).append("\n");
+    sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -88,7 +88,7 @@ public interface ToolApi {
     )
     default ResponseEntity<ToolDependencies> getToolDependencies() {
         ToolDependencies dependencies = new ToolDependencies()
-            .toolDependencies(new ArrayList<Tool>());
+            .tools(new ArrayList<Tool>());
         return new ResponseEntity<ToolDependencies>(dependencies, HttpStatus.OK);
     }
 
