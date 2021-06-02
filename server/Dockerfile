@@ -1,4 +1,4 @@
-FROM python:3.9.4-slim-buster
+FROM debian:10.9-slim
 
 ENV APP_DIR=/opt/app
 
