@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * Information about an NLP tool
  */
 @ApiModel(description = "Information about an NLP tool")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-03-19T19:33:58.212495-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-06-02T14:41:13.852686-07:00[America/Los_Angeles]")
 public class Tool   {
   @JsonProperty("name")
   private String name;

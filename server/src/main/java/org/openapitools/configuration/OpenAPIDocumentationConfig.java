@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.ServletContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-11T19:27:30.163340-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-06-02T14:41:13.852686-07:00[America/Los_Angeles]")
 @Configuration
 @EnableSwagger2
 public class OpenAPIDocumentationConfig {
@@ -29,7 +29,7 @@ public class OpenAPIDocumentationConfig {
             .license("Apache 2.0")
             .licenseUrl("https://github.com/nlpsandbox/nlpsandbox-schemas/blob/develop/LICENSE")
             .termsOfServiceUrl("https://nlpsandbox.io")
-            .version("1.1.0")
+            .version("1.1.2")
             .contact(new Contact("","", "team@nlpsandbox.io"))
             .build();
     }
