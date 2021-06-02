@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A date annotation in a text
  */
 @ApiModel(description = "A date annotation in a text")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-02-25T15:53:35.186246-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-06-02T14:41:13.852686-07:00[America/Los_Angeles]")
 public class TextDateAnnotation   {
   @JsonProperty("start")
   private Integer start;
