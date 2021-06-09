@@ -97,7 +97,7 @@ Node, see section [Development requirements](#Development-requirements)) from
 the project folder and run this command to build and start this NLP Sandbox
 tool:
 
-```
+```console
 npm run start:dev
 ```
 
