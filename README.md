@@ -2,9 +2,9 @@
 
 # NLP Sandbox Date Annotator Example for Java
 
-[![GitHub Release](https://img.shields.io/github/release/nlpsandbox/date-annotator-example.svg?include_prereleases&color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example/releases)
-[![GitHub CI](https://img.shields.io/github/workflow/status/nlpsandbox/date-annotator-example/CI.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example/actions)
-[![GitHub License](https://img.shields.io/github/license/nlpsandbox/date-annotator-example.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example/blob/develop/LICENSE)
+[![GitHub Release](https://img.shields.io/github/release/nlpsandbox/date-annotator-example-java.svg?include_prereleases&color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example-java/releases)
+[![GitHub CI](https://img.shields.io/github/workflow/status/nlpsandbox/date-annotator-example-java/CI.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example-java/actions)
+[![GitHub License](https://img.shields.io/github/license/nlpsandbox/date-annotator-example-java.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/nlpsandbox/date-annotator-example-java/blob/main/LICENSE)
 [![Docker](https://img.shields.io/badge/docker-blue.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=nlpsandbox&logo=data:image/svg%2bxml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMy4yIDcuOS0xLjctMXYxMS40bDkuOSA1LjdWMTIuNkw1LjYgOS4zIDMuMiA3Ljl6bTE3LjEtMS4zIDEuNS0uOUwxMiAwIDIuMiA1LjdsMi42IDEuNS4xLjEgMS43IDEgNS41IDMuMiA1LjEtMyAzLjEtMS45ek0xMiA5LjUgOS4zIDcuOSA3LjQgNi44bC0xLjctMS0uMS0uMWgtLjFMMTIgMS45bDYuNSAzLjhMMTYuMyA3IDEyIDkuNXptOC44LTEuNi0yLjQgMS40LS41LjItNS4zIDMuMVYyNGw5LjktNS43VjYuOWwtMS43IDF6IiBmaWxsPSIjZmZmIi8+PC9zdmc+)](https://www.synapse.org/#!Synapse:syn25830787 "Get the Docker image of this tool on NLPSandbox.io")
 [![Leaderboard](https://img.shields.io/badge/leaderboard-blue.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=nlpsandbox&logo=data:image/svg%2bxml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMy4yIDcuOS0xLjctMXYxMS40bDkuOSA1LjdWMTIuNkw1LjYgOS4zIDMuMiA3Ljl6bTE3LjEtMS4zIDEuNS0uOUwxMiAwIDIuMiA1LjdsMi42IDEuNS4xLjEgMS43IDEgNS41IDMuMiA1LjEtMyAzLjEtMS45ek0xMiA5LjUgOS4zIDcuOSA3LjQgNi44bC0xLjctMS0uMS0uMWgtLjFMMTIgMS45bDYuNSAzLjhMMTYuMyA3IDEyIDkuNXptOC44LTEuNi0yLjQgMS40LS41LjItNS4zIDMuMVYyNGw5LjktNS43VjYuOWwtMS43IDF6IiBmaWxsPSIjZmZmIi8+PC9zdmc+)](https://www.synapse.org/#!Synapse:syn22277123/wiki/608544 "View the performance of this tool on NLPSandbox.io")
 [![Discord](https://img.shields.io/discord/770484164393828373.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=Discord&logo=discord)](https://nlpsandbox.io/discord "Realtime support / chat with the community and the team")
@@ -37,7 +37,7 @@ performance -- just don't expect a high performance!
 - [Requirements](#Requirements)
 - [Usage](#Usage)
   - [Running with Docker](#Running-with-Docker)
-  - [Running with Python](#Running-with-Python)
+  - [Running with Maven](#Running-with-Maven)
   - [Accessing this NLP Sandbox tool User
     Interface](#Accessing-this-NLP-Sandbox-tool-User-Interface)
 - [Development](#Development)
@@ -60,8 +60,8 @@ performance -- just don't expect a high performance!
 
 ## Specification
 
-- NLP Sandbox schemas version: 1.1.2
-- NLP Sandbox tool version: 1.1.2
+- NLP Sandbox schemas version: 1.2.0
+- NLP Sandbox tool version: 1.2.0
 - Docker image: [docker.synapse.org/syn22277123/date-annotator-example-java]
 
 
@@ -89,7 +89,7 @@ Build and start the example date annotator.
 ```console
 cd server/
 mvn package
-java -jar target/openapi-spring-1.1.2.jar
+java -jar target/openapi-spring-1.2.0.jar
 ```
 
 Alternatively, install the development dependencies with `npm ci` (requires
@@ -345,7 +345,7 @@ Thinking about contributing to this project? Get started by reading our
 [this GitHub template]: https://github.com/nlpsandbox/date-annotator-example/generate
 [nlpsandbox/date-annotator-example-java]: https://github.com/nlpsandbox/date-annotator-example-java
 [nlpsandbox/date-annotator-example]: https://github.com/nlpsandbox/date-annotator-example
-[Patient schema]: https://github.com/nlpsandbox/nlpsandbox-schemas/blob/develop/openapi/commons/components/schemas/Patient.yaml
+[Patient schema]: https://github.com/nlpsandbox/nlpsandbox-schemas/blob/main/openapi/commons/components/schemas/Patient.yaml
 [semantic versioning]: https://semver.org/
 [NLP Sandbox schemas CHANGELOG]: .github/CHANGELOG.md
 [Apache Maven]: https://maven.apache.org/install.html
