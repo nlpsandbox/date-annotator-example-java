@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.net.URI;
 import org.openapitools.model.License;
+import org.openapitools.model.ToolType;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -15,7 +16,7 @@ import javax.validation.constraints.*;
  * Information about an NLP tool
  */
 @ApiModel(description = "Information about an NLP tool")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-06-02T14:41:13.852686-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-06-20T21:46:49.832722-07:00[America/Los_Angeles]")
 public class Tool   {
   @JsonProperty("name")
   private String name;
@@ -42,7 +43,7 @@ public class Tool   {
   private URI url;
 
   @JsonProperty("type")
-  private String type;
+  private ToolType type;
 
   @JsonProperty("apiVersion")
   private String apiVersion;
@@ -144,7 +145,7 @@ public class Tool   {
   @ApiModelProperty(required = true, value = "A short, one-sentence summary of the tool")
   @NotNull
 
-@Size(max=100) 
+@Size(max=280) 
   public String getDescription() {
     return description;
   }
@@ -217,24 +218,25 @@ public class Tool   {
     this.url = url;
   }
 
-  public Tool type(String type) {
+  public Tool type(ToolType type) {
     this.type = type;
     return this;
   }
 
   /**
-   * The type of this tool
+   * Get type
    * @return type
   */
-  @ApiModelProperty(example = "nlpsandbox:date-annotator", required = true, value = "The type of this tool")
+  @ApiModelProperty(required = true, value = "")
   @NotNull
 
-@Pattern(regexp="^[a-z0-9]+(?:-[a-z0-9]+)*(:)[a-z0-9]+(?:-[a-z0-9]+)*$") @Size(min=3,max=60) 
-  public String getType() {
+  @Valid
+
+  public ToolType getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(ToolType type) {
     this.type = type;
   }
 

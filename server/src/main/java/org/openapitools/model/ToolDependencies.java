@@ -16,7 +16,7 @@ import javax.validation.constraints.*;
  * A list of tool dependencies
  */
 @ApiModel(description = "A list of tool dependencies")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-06-02T14:41:13.852686-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-06-20T21:46:49.832722-07:00[America/Los_Angeles]")
 public class ToolDependencies   {
   @JsonProperty("tools")
   @Valid
