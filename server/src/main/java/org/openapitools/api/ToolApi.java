@@ -60,7 +60,7 @@ public interface ToolApi {
             .version("1.2.0")
             .license(License.APACHE_2_0)
             .repository("github:nlpsandbox/date-annotator-example-java")
-            .description("Example implementation of the NLP Sandbox Date Annotator")
+            .description("Example implementation of the NLP Sandbox Date Annotator API")
             .author("NLP Sandbox Team")
             .authorEmail("team@nlpsandbox.io")
             .url(URI.create("https://github.com/nlpsandbox/date-annotator-example-java"))
