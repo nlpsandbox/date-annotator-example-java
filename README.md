@@ -60,8 +60,8 @@ performance -- just don't expect a high performance!
 
 ## Specification
 
-- NLP Sandbox schemas version: 1.1.2
-- NLP Sandbox tool version: 1.1.2
+- NLP Sandbox schemas version: 1.2.0
+- NLP Sandbox tool version: 1.2.0
 - Docker image: [docker.synapse.org/syn22277123/date-annotator-example-java]
 
 
@@ -89,7 +89,7 @@ Build and start the example date annotator.
 ```console
 cd server/
 mvn package
-java -jar target/openapi-spring-1.1.2.jar
+java -jar target/openapi-spring-1.2.0.jar
 ```
 
 Alternatively, install the development dependencies with `npm ci` (requires

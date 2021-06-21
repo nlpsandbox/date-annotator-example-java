@@ -9,6 +9,7 @@ import org.openapitools.model.Error;
 import org.openapitools.model.License;
 import org.openapitools.model.Tool;
 import org.openapitools.model.ToolDependencies;
+import org.openapitools.model.ToolType;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -56,15 +57,15 @@ public interface ToolApi {
     default ResponseEntity<Tool> getTool() {
         Tool tool = new Tool()
             .name("date-annotator-example-java")
-            .version("1.1.2")
+            .version("1.2.0")
             .license(License.APACHE_2_0)
             .repository("github:nlpsandbox/date-annotator-example-java")
             .description("Example implementation of the NLP Sandbox Date Annotator")
             .author("NLP Sandbox Team")
             .authorEmail("team@nlpsandbox.io")
             .url(URI.create("https://github.com/nlpsandbox/date-annotator-example-java"))
-            .type("nlpsandbox:date-annotator")
-            .apiVersion("1.1.2");
+            .type(ToolType.DATE_ANNOTATOR)
+            .apiVersion("1.2.0");
         return new ResponseEntity<Tool>(tool, HttpStatus.OK);
     }
 
