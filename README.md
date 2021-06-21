@@ -37,7 +37,7 @@ performance -- just don't expect a high performance!
 - [Requirements](#Requirements)
 - [Usage](#Usage)
   - [Running with Docker](#Running-with-Docker)
-  - [Running with Python](#Running-with-Python)
+  - [Running with Maven](#Running-with-Maven)
   - [Accessing this NLP Sandbox tool User
     Interface](#Accessing-this-NLP-Sandbox-tool-User-Interface)
 - [Development](#Development)
