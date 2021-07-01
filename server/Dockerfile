@@ -1,4 +1,4 @@
-FROM debian:10.9-slim
+FROM debian:10.10-slim
 
 ENV APP_DIR=/opt/app
 
